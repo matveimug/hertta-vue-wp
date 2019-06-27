@@ -32,5 +32,5 @@ export default new Vuex.Store({
     mittens
   },
   strict: debug,
-  plugins: [localStorage]
+  // plugins: [localStorage]
 })
