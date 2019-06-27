@@ -1,14 +1,11 @@
 <template>
-  <div>
-    <h3>Welcome!</h3>
-    <p>You'll probably want to remove all of this stuff, but hey it at least it works!</p>
-    <p>
-      ~
-      <a href="https://evanagee.com/">Evan Agee</a>
-    </p>
-
-    <recent-posts-widget limit="5">Recent Posts</recent-posts-widget>
-    <pages-widget limit="5">Pages</pages-widget>
+  <div id="app">
+    <div class="container large">
+      <Dots class="main" @emit="setMain" :colors="mainDots"/>
+      <Product class="large" :colors="getSelected" :scale="1" />
+      <Dots class="accent" @emit="setAccent" :colors="accentDots"/>
+    </div>
+    <Combos />
   </div>
 </template>
 
@@ -23,3 +20,5 @@ export default {
   }
 };
 </script>
+
+
