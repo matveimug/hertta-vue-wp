@@ -9,7 +9,7 @@ import * as types from "./store/mutation-types";
 import "./assets/css/styles.css";
 
 import Product from './components/partials/Product.vue'
-import Main from './components/partials/Main.vu e'
+import Main from './components/partials/Main.vue'
 import MainColor from './components/partials/MainColor.vue'
 import Accent from './components/partials/Accent.vue'
 import AccentColor from './components/partials/AccentColor.vue'
