@@ -8,6 +8,7 @@ import user from './modules/user'
 import post from './modules/post'
 import page from './modules/page'
 import categories from './modules/categories'
+import mittens from './modules/mittens'
 
 Vue.use(Vuex)
 
@@ -27,7 +28,8 @@ export default new Vuex.Store({
     user,
     post,
     page,
-    categories
+    categories,
+    mittens
   },
   strict: debug,
   plugins: [localStorage]
