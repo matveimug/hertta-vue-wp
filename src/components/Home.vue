@@ -24,13 +24,9 @@
         },
         methods: {
             selectMain: function (color) {
-                console.log(color);
-                console.log(this.selected);
                 this.selectedMain(color)
             },
             selectAccent: function (color) {
-                console.log(color);
-                console.log(this.selected);
                 this.selectedAccent(color)
             },
             ...mapActions({
