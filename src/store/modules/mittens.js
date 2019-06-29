@@ -58,7 +58,7 @@ const getters = {
 };
 const mutations = {
   selectedColors: function(state, payload) {
-    return state.payload.selected;
+    state.selected = payload;
   }
 };
 const actions = {
@@ -68,10 +68,18 @@ const actions = {
     console.log(payload);
     console.log("/action");
     context.commit("randomColors", payload);
+  },
+  selectedColors: function(context, payload) {
+    console.log("action");
+    console.log(context);
+    console.log(payload);
+    console.log("/action");
+    context.commit("selectedColors", payload);
   }
 };
 
 export default {
+  namespaced: true,
   state,
   getters,
   actions,

@@ -18,11 +18,11 @@
     export default {
         name: "Combos",
         computed: {
-            ...mapGetters(['makeCombos'])
+            ...mapGetters('mittens', ['makeCombos'])
         },
         methods: {
             storeCombo(colors) {
-                this.$store.commit("selectedColors", colors);
+                this.$store.dispatch("mittens/selectedColors", colors);
             }
         }
     };

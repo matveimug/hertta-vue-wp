@@ -2,7 +2,7 @@
   <div id="app">
     <div class="container large">
       <Dots class="main" :colors="main"/>
-      <Product class="large" :colors="randomColors" :scale="1"/>
+      <Product class="large" :colors="selected" :scale="1"/>
       <Dots class="accent" :colors="accent"/>
     </div>
     <Combos/>
@@ -16,11 +16,16 @@
 
     export default {
         computed: {
+            ...mapState('mittens', ['main', 'accent', 'selected']),
+            ...mapGetters('mittens', ['randomColors']),
             function () {
-                console.log(this.$store)
-            },
-            ...mapState(['main', 'accent']),
-            ...mapGetters(['randomColors'])
+                this.$store.commit("mittens/selectedColors", this.randomColors);
+                console.log('computed');
+                console.log(this.$store.state.mittens);
+                console.log(this.randomColors);
+                console.log(this.selected);
+                console.log(this.main);
+            }
         },
         components: {
             RecentPostsWidget,
