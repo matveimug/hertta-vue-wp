@@ -14,6 +14,8 @@
         props: ['colors'],
         methods: {
             emitColor (color) {
+                console.log('click');
+                console.log(color);
                 this.$emit('emit', color)
             }
         }

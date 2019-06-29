@@ -59,22 +59,26 @@ const getters = {
 const mutations = {
   selectedColors: function(state, payload) {
     state.selected = payload;
+  },
+  selectedMain: function(state, payload) {
+    state.selected.main = payload;
+  },
+  selectedAccent: function(state, payload) {
+    state.selected.accent = payload;
   }
 };
 const actions = {
   randomColors: function(context, payload) {
-    console.log("action");
-    console.log(context);
-    console.log(payload);
-    console.log("/action");
     context.commit("randomColors", payload);
   },
   selectedColors: function(context, payload) {
-    console.log("action");
-    console.log(context);
-    console.log(payload);
-    console.log("/action");
     context.commit("selectedColors", payload);
+  },
+  selectedMain: function(context, payload) {
+    context.commit("selectedMain", payload);
+  },
+  selectedAccent: function(context, payload) {
+    context.commit("selectedAccent", payload);
   }
 };
 
