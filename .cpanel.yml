@@ -1,0 +1,5 @@
+---
+deployment:
+  tasks:
+    - export DEPLOYPATH=/home/madisvah/shop.hertta.ee/wp-content/themes/hertta-vue-wp/dist
+    - /bin/cp styles.css $DEPLOYPATH
