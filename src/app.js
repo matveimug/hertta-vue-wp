@@ -6,7 +6,8 @@ import App from "./App.vue";
 import store from "./store";
 import * as types from "./store/mutation-types";
 
-import "./assets/css/styles.css";
+// import "./assets/css/styles.css";
+import "./assets/scss/_app.scss";
 
 import Product from './components/partials/Product.vue'
 import Main from './components/partials/Main.vue'

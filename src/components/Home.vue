@@ -1,11 +1,17 @@
 <template>
   <div id="app">
-    <div class="container large">
-      <Dots class="main" :colors="main" v-on:emit="selectMain"/>
-      <Product class="large" :colors="selected" :scale="1"/>
-      <Dots class="accent" :colors="accent" v-on:emit="selectAccent"/>
-    </div>
-    <Combos/>
+    <section class="hero is-fullheight">
+      <div class="hero-body">
+        <div class="container is-flex hero-center">
+          <Dots class="dots main" :colors="main" v-on:emit="selectMain"/>
+          <Product class="large" :colors="selected" :scale="1"/>
+          <Dots class="dots accent" :colors="accent" v-on:emit="selectAccent"/>
+        </div>
+      </div>
+    </section>
+    <section class="section">
+      <Combos class="container"/>
+    </section>
   </div>
 </template>
 
@@ -17,10 +23,10 @@
     export default {
         computed: {
             ...mapState('mittens', ['main', 'accent', 'selected']),
-            ...mapGetters('mittens', ['randomColors']),
-            function () {
-                this.selectedColors(this.randomColors);
-            }
+            ...mapGetters('mittens', ['randomColors'])
+        },
+        mounted() {
+            this.selectedColors(this.randomColors);
         },
         methods: {
             selectMain: function (color) {
@@ -42,4 +48,23 @@
     };
 </script>
 
+<style lang="scss" scoped>
+  @import "../assets/scss/variables";
+  .hero-center {
+    width: 100%;
+    height: 100%;
+    justify-content: center;
+    align-items: center;
+  }
+  .dots {
+    position: absolute;
+    padding: $h-dotspadding;
+    &.main {
+      left: 0;
+    }
+    &.accent {
+      right: 0;
+    }
+  }
+</style>
 

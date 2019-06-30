@@ -1,31 +1,51 @@
 <template>
   <div class="Dots">
     <Dot
-      v-for="(color, index) in colors"
-      @click.native="emitColor(color)"
-      :color="color"
-      :key="index"/>
+            v-for="(color, index) in colors"
+            :class="isActive(color) && 'active'"
+            @click.native="$emit('emit', color)"
+            :color="color"
+            :key="index"/>
   </div>
 </template>
 
 <script>
+    import { mapState } from 'vuex'
     export default {
         name: 'Dots',
         props: ['colors'],
+        computed: {
+            ...mapState('mittens', ['selected']),
+        },
         methods: {
-            emitColor (color) {
-                this.$emit('emit', color)
+            isActive: function (color) {
+                if (color === this.selected.main || color === this.selected.accent) { return true }
             }
         }
     }
 </script>
 
-<style scoped>
+<style lang="scss" scoped>
+  @import "../../assets/scss/variables";
+
   .Dots {
-    display: flex;
     z-index: 1;
   }
+
   .Dot {
-    padding: .3em;
+    padding: $h-dotpadding;
+    cursor: pointer;
+    position: relative;
+  }
+
+  .Dot.active:before {
+    content: '';
+    border-radius: 50%;
+    border: $h-border;
+    position: absolute;
+    left: $h-dotpadding-active;
+    right: $h-dotpadding-active;
+    top: $h-dotpadding-active;
+    bottom: $h-dotpadding-active;
   }
 </style>

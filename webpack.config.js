@@ -28,6 +28,18 @@ module.exports = {
         }
       },
       {
+        test: /\.scss$/,
+        use: [
+          'vue-style-loader',
+          'css-loader',
+          {
+            loader: 'sass-loader',
+            options: {
+            }
+          }
+        ]
+      },
+      {
         test: /\.js$/,
         exclude: /(node_modules)/,
         use: {

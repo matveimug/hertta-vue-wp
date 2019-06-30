@@ -13,7 +13,7 @@
         name: 'Dot',
         props: {
             color: {},
-            radius: { default: 7 },
+            radius: { default: 5 },
         }
     }
 </script>

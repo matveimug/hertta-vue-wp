@@ -11,9 +11,7 @@
     </transition>
 
     <transition name="page-transition" mode="out-in" appear>
-      <div class="site-content">
-        <router-view></router-view>
-      </div>
+      <router-view></router-view>
     </transition>
 
     <app-footer/>
