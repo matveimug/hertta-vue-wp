@@ -36,6 +36,7 @@
     font-weight: bold;
     text-transform: uppercase;
     font-size: 18px;
+    letter-spacing: 1px;
   }
   ul {
     list-style: none;
@@ -44,6 +45,8 @@
   }
   li {
     padding: 0 $h-menuitempadding;
+  }
+  span {
     cursor: pointer;
   }
 </style>
