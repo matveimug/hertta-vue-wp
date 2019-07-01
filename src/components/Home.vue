@@ -44,7 +44,7 @@
         components: {
             RecentPostsWidget,
             PagesWidget
-        }
+        },
     };
 </script>
 

@@ -26,3 +26,10 @@ function load_vue_scripts() {
 	);
 }
 add_action( 'wp_enqueue_scripts', 'load_vue_scripts', 100 );
+
+function mytheme_register_nav_menu(){
+	register_nav_menus( array(
+		'primary_menu' => __( 'Primary Menu', 'hertta-vue-wp' )
+	) );
+}
+add_action( 'after_setup_theme', 'mytheme_register_nav_menu', 0 );

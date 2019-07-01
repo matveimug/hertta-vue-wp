@@ -2,12 +2,12 @@
   <div class="Product" :style="productStyle">
     <div class="product-scene" :style="sceneStyle">
       <div class="product-entity one">
-        <Main :current="colors.main"/>
-        <Accent :current="colors.accent"/>
+        <product-main :current="colors.main"/>
+        <product-accent :current="colors.accent"/>
       </div>
       <div class="product-entity two">
-        <Main :current="colors.main"/>
-        <Accent :current="colors.accent"/>
+        <product-main :current="colors.main"/>
+        <product-accent :current="colors.accent"/>
       </div>
     </div>
   </div>
