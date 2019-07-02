@@ -8,25 +8,25 @@ function random(min, max) {
 // initial state
 const state = {
   main: [
-    "GAINSBORO",
-    "LIGHTGRAY",
-    "DARKGRAY",
-    "DIMGRAY",
-    "SLATEGRAY",
-    "DARKSLATEGRAY"
+    "gainsboro",
+    "lightgray",
+    "darkgray",
+    "dimgray",
+    "slategray",
+    "darkslategray"
   ],
   accent: [
-    "KHAKI",
-    "CORAL",
-    "PALEVIOLETRED",
-    "SALMON",
-    "YELLOW",
-    "LAVENDERBLUSH",
-    "MEDIUMPURPLE",
-    "INDIGO",
-    "CHARTREUSE",
-    "TURQUOISE",
-    "NAVAJOWHITE"
+    "khaki",
+    "coral",
+    "palevioletred",
+    "salmon",
+    "yellow",
+    "lavenderblush",
+    "mediumpurple",
+    "indigo",
+    "chartreuse",
+    "turquoise",
+    "navajowhite"
   ],
   combos: [],
   selected: {
@@ -55,6 +55,9 @@ const getters = {
     }
     return combos;
   },
+  watchSelected: function () {
+    return state.selected
+  }
 };
 const mutations = {
   selectedColors: function(state, payload) {

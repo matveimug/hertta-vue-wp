@@ -9,6 +9,19 @@ const utils = {
         { pathname = '/' + pathname }
 
         return pathname;
+    },
+    colorToRgb: function (color) {
+        const d = document.createElement("div");
+        d.style.color = color;
+        document.body.appendChild(d);
+        let parsed = window.getComputedStyle(d).color;
+        document.body.removeChild(d);
+        return parsed
+    },
+    randomNumbers: function (min, max) {
+        min = Math.ceil(min);
+        max = Math.floor(max);
+        return Math.floor(Math.random() * (max - min)) + min;
     }
 };
 

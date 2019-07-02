@@ -10,7 +10,6 @@
 
 <script>
     export default {
-        name: 'Dot',
         props: {
             color: {},
             radius: { default: 5 },

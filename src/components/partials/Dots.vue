@@ -1,6 +1,6 @@
 <template>
   <div class="Dots">
-    <Dot
+    <h-dot
             v-for="(color, index) in colors"
             :class="isActive(color) && 'active'"
             @click.native="$emit('emit', color)"
@@ -12,7 +12,6 @@
 <script>
     import { mapState } from 'vuex'
     export default {
-        name: 'Dots',
         props: ['colors'],
         computed: {
             ...mapState('mittens', ['selected']),

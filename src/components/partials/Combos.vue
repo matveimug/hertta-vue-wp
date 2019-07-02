@@ -2,7 +2,7 @@
   <div>
     <p>- {{makeCombos.length}} combos -</p>
     <div class="Combos">
-      <Combo
+      <h-combo
               v-for="(combo, index) in makeCombos"
               @click.native="storeCombo(combo)"
               :key="index"
@@ -16,7 +16,6 @@
     import {mapGetters} from 'vuex'
 
     export default {
-        name: "Combos",
         computed: {
             ...mapGetters('mittens', ['makeCombos'])
         },

@@ -48,5 +48,10 @@
   }
   span {
     cursor: pointer;
+    user-select: none;
+  }
+  .router-link-active {
+    cursor: default;
+    border-bottom: $h-border;
   }
 </style>

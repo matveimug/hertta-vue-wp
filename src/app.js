@@ -20,17 +20,19 @@ import Dot from './components/partials/Dot.vue'
 import Combos from './components/partials/Combos.vue'
 import Combo from './components/partials/Combo.vue'
 import Brand from './components/partials/Brand.vue'
+import BackgroundGraphics from "./components/partials/BackgroundGraphics.vue";
 
-Vue.component('Product', Product);
-Vue.component('ProductMain', Main);
-Vue.component('MainColor', MainColor);
-Vue.component('ProductAccent', Accent);
-Vue.component('AccentColor', AccentColor);
-Vue.component('Dot', Dot);
-Vue.component('Dots', Dots);
-Vue.component('Combos', Combos);
-Vue.component('Combo', Combo);
-Vue.component('Brand', Brand);
+Vue.component('hProduct', Product);
+Vue.component('hProductMain', Main);
+Vue.component('hMainColor', MainColor);
+Vue.component('hProductAccent', Accent);
+Vue.component('hAccentColor', AccentColor);
+Vue.component('hDot', Dot);
+Vue.component('hDots', Dots);
+Vue.component('hCombos', Combos);
+Vue.component('hCombo', Combo);
+Vue.component('hBrand', Brand);
+Vue.component('hBackgroundGraphics', BackgroundGraphics);
 
 new Vue({
   el: "#app",

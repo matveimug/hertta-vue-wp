@@ -3,14 +3,14 @@
     <section class="hero is-fullheight">
       <div class="hero-body">
         <div class="container is-flex hero-center">
-          <Dots class="dots main" :colors="main" v-on:emit="selectMain"/>
-          <Product class="large" :colors="selected" :scale="1"/>
-          <Dots class="dots accent" :colors="accent" v-on:emit="selectAccent"/>
+          <h-dots class="dots main" :colors="main" v-on:emit="selectMain"/>
+          <h-product class="large" :colors="selected" :scale="1"/>
+          <h-dots class="dots accent" :colors="accent" v-on:emit="selectAccent"/>
         </div>
       </div>
     </section>
     <section class="section">
-      <Combos class="container"/>
+      <h-combos class="container"/>
     </section>
   </div>
 </template>

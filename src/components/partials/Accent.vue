@@ -1,12 +1,11 @@
 <template>
   <div class="Accent">
-    <AccentColor :color="current" />
+    <h-accent-color :color="current" />
   </div>
 </template>
 
 <script>
     export default {
-        name: 'Accent',
         props: ['current'],
         data: () => ({}),
     }

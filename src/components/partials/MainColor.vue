@@ -6,7 +6,6 @@
 
 <script>
     export default {
-        name: 'MainColor',
         props: ['color']
     }
 </script>

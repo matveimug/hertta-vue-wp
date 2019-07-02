@@ -1,18 +1,18 @@
 <template>
   <header>
-    <router-link :to="'/'">
-      <Brand class="navbar-brand"/>
+    <router-link class="brand-link" :to="'/'">
+      <h-brand class="navbar-brand"/>
     </router-link>
-    <nav-menu :menu="menu"/>
+    <h-nav-menu :menu="menu"/>
   </header>
 </template>
 
 <script>
     import axios from "axios";
-    import NavMenu from "./Menu.vue";
+    import hNavMenu from "./Menu.vue";
 
     export default {
-        components: { NavMenu },
+        components: { hNavMenu },
         data() {
             return {
                 menu: false
@@ -23,10 +23,10 @@
         },
         methods: {
             async fetchMenu() {
+
                 axios
                     .get('/wp-json/menus/v1/menus/main-menu')
                     .then(response => {
-                        console.log(response.data);
                         this.menu = response.data;
                     })
                     .catch(error => console.log("not working"));
@@ -46,8 +46,13 @@
     justify-content: center;
     align-items: center;
     padding-top: $h-menuitempadding;
+    color: $black;
+    fill: $black;
   }
   .navbar-brand {
     width: 190px;
+  }
+  .brand-link.router-link-exact-active {
+    cursor: default;
   }
 </style>

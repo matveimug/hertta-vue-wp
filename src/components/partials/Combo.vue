@@ -1,7 +1,7 @@
 <template>
   <div class="Combo">
     <div class="container">
-      <Product class="Product" :colors="combo" :scale=".3" />
+      <h-product class="Product" :colors="combo" :scale=".3" />
     </div>
     <span>+ {{combo.main}}, {{combo.accent}} +</span>
   </div>
@@ -9,7 +9,6 @@
 
 <script>
     export default {
-        name: 'Combo',
         props: ['combo']
     }
 </script>

@@ -14,12 +14,14 @@
       <router-view></router-view>
     </transition>
 
+    <h-background-graphics />
+
     <app-footer/>
   </div>
 </template>
 
 <script>
-import { mapGetters, mapActions, mapMutations } from "vuex";
+import { mapGetters } from "vuex";
 import Header from "./components/partials/Header.vue";
 import Footer from "./components/partials/Footer.vue";
 import ProgressBar from "./components/partials/ProgressBar.vue";

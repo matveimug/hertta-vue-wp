@@ -2,12 +2,12 @@
   <div class="Product" :style="productStyle">
     <div class="product-scene" :style="sceneStyle">
       <div class="product-entity one">
-        <product-main :current="colors.main"/>
-        <product-accent :current="colors.accent"/>
+        <h-product-main :current="colors.main"/>
+        <h-product-accent :current="colors.accent"/>
       </div>
       <div class="product-entity two">
-        <product-main :current="colors.main"/>
-        <product-accent :current="colors.accent"/>
+        <h-product-main :current="colors.main"/>
+        <h-product-accent :current="colors.accent"/>
       </div>
     </div>
   </div>
@@ -15,7 +15,6 @@
 
 <script>
     export default {
-        name: 'Product',
         props: ['colors', 'scale'],
         computed: {
             productStyle: function () {

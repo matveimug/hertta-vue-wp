@@ -1,12 +1,11 @@
 <template>
   <div class="Main">
-    <MainColor :color="current" />
+    <h-main-color :color="current" />
   </div>
 </template>
 
 <script>
     export default {
-        name: 'Main',
         props: ['current'],
         data: () => ({}),
     }

@@ -7,7 +7,6 @@
 
 <script>
     export default {
-        name: 'AccentColor',
         props: ['color']
     }
 </script>
