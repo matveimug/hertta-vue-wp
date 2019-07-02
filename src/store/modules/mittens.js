@@ -31,7 +31,8 @@ const state = {
   combos: [],
   selected: {
     main: "",
-    accent: ""
+    accent: "",
+    pos: {}
   }
 };
 
@@ -68,6 +69,9 @@ const mutations = {
   },
   selectedAccent: function(state, payload) {
     state.selected.accent = payload;
+  },
+  selectedPos: function(state, payload) {
+    state.selected.pos = payload;
   }
 };
 const actions = {
@@ -82,6 +86,9 @@ const actions = {
   },
   selectedAccent: function(context, payload) {
     context.commit("selectedAccent", payload);
+  },
+  selectedPos: function(context, payload) {
+    context.commit("selectedPos", payload);
   }
 };
 
