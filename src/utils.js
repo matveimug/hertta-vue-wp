@@ -22,6 +22,11 @@ const utils = {
         min = Math.ceil(min);
         max = Math.floor(max);
         return Math.floor(Math.random() * (max - min)) + min;
+    },
+    getPos: function(ref) {
+        const x = ref.getBoundingClientRect().left;
+        const y = ref.getBoundingClientRect().top;
+        return {x: x, y: y}
     }
 };
 

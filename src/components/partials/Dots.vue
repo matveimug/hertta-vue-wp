@@ -3,14 +3,16 @@
     <h-dot
             v-for="(color, index) in colors"
             :class="isActive(color) && 'active'"
-            @click.native="$emit('emit', color)"
+            @click.native="isClicked({color: color, ref: 'dot_' + index})"
             :color="color"
+            :ref="'dot_' + index"
             :key="index"/>
   </div>
 </template>
 
 <script>
     import { mapState } from 'vuex'
+    import utils from '../../utils'
     export default {
         props: ['colors'],
         computed: {
@@ -19,6 +21,12 @@
         methods: {
             isActive: function (color) {
                 if (color === this.selected.main || color === this.selected.accent) { return true }
+            },
+            isClicked: function (payload) {
+                const el = this.$refs[payload.ref][0].$el;
+                payload['pos'] = utils.getPos(el);
+                console.log(payload);
+                this.$emit('emit', payload)
             }
         }
     }

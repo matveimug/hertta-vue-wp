@@ -29,11 +29,11 @@
             this.selectedColors(this.randomColors);
         },
         methods: {
-            selectMain: function (color) {
-                this.selectedMain(color)
+            selectMain: function (payload) {
+                this.selectedMain(payload.color);
             },
-            selectAccent: function (color) {
-                this.selectedAccent(color)
+            selectAccent: function (payload) {
+                this.selectedAccent(payload.color);
             },
             ...mapActions({
                     'selectedColors': 'mittens/selectedColors',
