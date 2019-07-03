@@ -16,9 +16,6 @@ import Main from './components/partials/Main.vue'
 import MainColor from './components/partials/MainColor.vue'
 import Accent from './components/partials/Accent.vue'
 import AccentColor from './components/partials/AccentColor.vue'
-import Dots from './components/partials/Dots.vue'
-import Dot from './components/partials/Dot.vue'
-import Marker from './components/partials/Marker.vue'
 import Combos from './components/partials/Combos.vue'
 import Combo from './components/partials/Combo.vue'
 import Brand from './components/partials/Brand.vue'
@@ -29,9 +26,6 @@ Vue.component('hProductMain', Main);
 Vue.component('hMainColor', MainColor);
 Vue.component('hProductAccent', Accent);
 Vue.component('hAccentColor', AccentColor);
-Vue.component('hDots', Dots);
-Vue.component('hDot', Dot);
-Vue.component('hMarker', Marker);
 Vue.component('hCombos', Combos);
 Vue.component('hCombo', Combo);
 Vue.component('hBrand', Brand);

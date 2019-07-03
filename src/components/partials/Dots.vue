@@ -1,56 +1,49 @@
 <template>
   <div class="Dots" ref="parent">
     <h-dot
-        v-for="(color, index) in colors"
-        :class="isActive({color: color, ref: 'dot_' + index}) && 'active'"
-        @click.native="isClicked({color: color, ref: 'dot_' + index})"
+        v-for="color in colors"
+        @click.native="isClicked(color)"
         :color="color"
-        :ref="'dot_' + index"
-        :key="index"/>
-    <h-marker />
+        :ref="color"
+        :key="color"/>
+    <h-marker :top="marker_top"/>
   </div>
 </template>
 
 <script>
-  import {mapState, mapActions} from 'vuex'
+  import {mapState, mapActions, mapGetters} from 'vuex'
   import utils from '../../utils'
+  import hDot from '../partials/Dot.vue'
+  import hMarker from '../partials/Marker.vue'
 
   export default {
-    props: ['colors'],
+    components: { hDot, hMarker },
+    props: ['colors', 'propsSelected'],
     computed: {
       ...mapState('mittens', ['selected']),
+      ...mapGetters('mittens', ["watchSelected"]),
     },
     data() {
       return {
-        refs: false,
-        parent_coords: {}
+        marker_top: 0
       }
     },
     mounted() {
-      this.refs = this.$refs;
+      console.log(this.selected)
     },
-    destroyed() {
-      this.refs = false;
+    watch: {
+      watchSelected: {
+        deep: true,
+        handler() {
+          const dot = this.$refs[this.propsSelected][0].$el;
+          const { parent } = this.$refs;
+          this.marker_top = utils.getPos(dot).y - utils.getPos(parent).y;
+        }
+      }
     },
     methods: {
-      isActive: function (payload) {
-        if (payload.color === this.selected.main || payload.color === this.selected.accent) {
-          if (this.refs) {
-            const dot = this.refs[payload.ref][0].$el;
-            const coords = utils.getPos(dot);
-            const { parent } = this.$refs;
-            coords['parent'] = utils.getPos(parent);
-            this.selectedPos(coords);
-            return true
-          }
-        }
-      },
       isClicked: function (payload) {
-        if (this.refs) {
-          const el = this.refs[payload.ref][0].$el;
-          payload['pos'] = utils.getPos(el);
-          this.$emit('emit', payload)
-        }
+        this.$emit('emit', payload)
       },
       ...mapActions({
         'selectedPos': 'mittens/selectedPos',

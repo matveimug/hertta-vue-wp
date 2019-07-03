@@ -6,7 +6,7 @@
   import { mapState, mapGetters } from 'vuex'
   import { TimelineLite } from 'gsap';
   export default {
-    props: ['parentCoords'],
+    props: ['top'],
     computed: {
       ...mapState('mittens', ['selected']),
       ...mapGetters('mittens', ["watchSelected"]),
@@ -18,28 +18,17 @@
         parent_y: {}
       }
     },
-    mounted() {
-      console.log('yes', this.watchSelected);
-      // this.timeline = new TimelineLite();
-      // const { marker } = this.$refs;
-      // this.marker = marker;
-      // this.parent_y = this.selected.parent.y;
-      // this.timeline.to(this.marker, 1, {
-      //   ease: Expo.easeInOut,
-      //   top: this.selected.pos.y - this.parent_y
-      // });
-    },
     watch: {
-      watchSelected: {
-        deep: true,
-        handler(selected) {
-          // this.timeline.to(this.marker, 1, {
-          //   ease: Expo.easeInOut,
-          //   top: selected.pos.y - this.parent_y
-          // });
-        }
+      deep: true,
+      top: function(newVal) {
+          const timeline = new TimelineLite();
+          const { marker } = this.$refs;
+          timeline.to(marker, 1, {
+            ease: Expo.easeInOut,
+            top: newVal
+          });
       }
-    },
+    }
   }
 </script>
 
