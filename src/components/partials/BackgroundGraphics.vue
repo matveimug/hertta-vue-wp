@@ -19,12 +19,13 @@
       return {
         window: {
           width: 0,
-          height: 0
+          height: 0,
+          dur: 1
         }
       }
     },
     created() {
-      window.addEventListener('resize', this.handleResize)
+      window.addEventListener('resize', this.handleResize);
       this.handleResize();
     },
     destroyed() {
@@ -47,7 +48,7 @@
           const h = this.window.height / 2 - 60;
           const r = utils.randomNumbers(w / 2, w);
           timeline.to(main, 1, {
-            ease: Expo.easeInOut,
+            ease: Power4.easeInOut,
             x: utils.randomNumbers(0, w),
             y: utils.randomNumbers(0, h),
             rotation: utils.randomNumbers(0, 180),
@@ -57,7 +58,7 @@
             zIndex: utils.randomNumbers(-1, 0)
           }, "go");
           timeline.to(accent, 1, {
-            ease: Expo.easeInOut,
+            ease: Power4.easeInOut,
             x: -utils.randomNumbers(0, w),
             y: utils.randomNumbers(0, h),
             rotation: utils.randomNumbers(0, 180),

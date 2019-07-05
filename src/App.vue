@@ -11,7 +11,9 @@
     </transition>
 
     <transition name="page-transition" mode="out-in" appear>
-      <router-view></router-view>
+      <keep-alive>
+        <router-view></router-view>
+      </keep-alive>
     </transition>
 
     <h-background-graphics />
@@ -52,7 +54,7 @@ export default {
   watch: {
     // watch the value of isLoading and once it's false hide the loader
     isLoading(val) {
-      if (val == false) {
+      if (val === false) {
         let self = this;
         setTimeout(function() {
           self.showLoader = false;
