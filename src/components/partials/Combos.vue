@@ -41,7 +41,7 @@
     display: grid;
     grid-template-columns: repeat(auto-fit,minmax($hComboGridSize,1fr));
     grid-auto-rows: minmax($hComboGridSize,1fr);
-    grid-gap: 1rem;
+    grid-gap: 2em;
   }
   .Combos > * {
     width: 100%;

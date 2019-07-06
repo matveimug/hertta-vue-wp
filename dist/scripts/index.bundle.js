@@ -51940,10 +51940,12 @@ exports.default = {
   props: ['combo'],
   methods: {
     bgColor: function bgColor() {
-      var color = (0, _color2.default)(this.combo.accent).mix((0, _color2.default)(this.combo.main)).hsl();
+      var color = (0, _color2.default)(this.combo.accent).mix((0, _color2.default)(this.combo.main), 0.3).hsl();
       // color.color[1] = 20;
-      color.color[2] = 90;
-      return color;
+      color.color[2] = 97;
+      var bgColor = 'background-color: ' + color;
+      var bgGradient = 'background-image: linear-gradient(132deg,' + this.combo.accent + ',' + this.combo.main + ')';
+      return bgColor;
     }
   },
   mounted: function mounted() {
@@ -51963,7 +51965,7 @@ exports.default = {
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;return _c('div',{staticClass:"Combo",style:({backgroundColor: _vm.bgColor()})},[_c('div',{staticClass:"container"},[_c('h-product',{staticClass:"Product",attrs:{"colors":_vm.combo,"scale":.3}})],1)])}
+var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;return _c('div',{staticClass:"Combo",style:(_vm.bgColor())},[_c('div',{staticClass:"container"},[_c('h-product',{staticClass:"Product",attrs:{"colors":_vm.combo,"scale":.3}})],1)])}
 var staticRenderFns = []
 var esExports = { render: render, staticRenderFns: staticRenderFns }
 /* harmony default export */ __webpack_exports__["a"] = (esExports);
@@ -54227,7 +54229,7 @@ exports = module.exports = __webpack_require__(7)(undefined);
 
 
 // module
-exports.push([module.i, "p[data-v-fec421e0]{padding-bottom:2em;text-align:center}.Combos[data-v-fec421e0]{display:-ms-grid;display:grid;-ms-grid-columns:(minmax(295px,1fr))[auto-fit];grid-template-columns:repeat(auto-fit,minmax(295px,1fr));grid-auto-rows:minmax(295px,1fr);grid-gap:1rem}.Combos>[data-v-fec421e0]{width:100%}.Combos[data-v-fec421e0]:after{content:\"\";display:inline-block;width:1px;height:0;padding-bottom:100%}", ""]);
+exports.push([module.i, "p[data-v-fec421e0]{padding-bottom:2em;text-align:center}.Combos[data-v-fec421e0]{display:-ms-grid;display:grid;-ms-grid-columns:(minmax(295px,1fr))[auto-fit];grid-template-columns:repeat(auto-fit,minmax(295px,1fr));grid-auto-rows:minmax(295px,1fr);grid-gap:2em}.Combos>[data-v-fec421e0]{width:100%}.Combos[data-v-fec421e0]:after{content:\"\";display:inline-block;width:1px;height:0;padding-bottom:100%}", ""]);
 
 // exports
 
