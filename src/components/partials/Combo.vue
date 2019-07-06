@@ -1,38 +1,48 @@
 <template>
-  <div class="Combo">
+  <div class="Combo" :style="{backgroundColor: bgColor()}">
     <div class="container">
-      <h-product class="Product" :colors="combo" :scale=".3" />
+      <h-product class="Product" :colors="combo" :scale=".3"/>
     </div>
-    <span>+ {{combo.main}}, {{combo.accent}} +</span>
   </div>
 </template>
 
 <script>
-    export default {
-        props: ['combo']
-    }
+  import Color from "color"
+  export default {
+    props: ['combo'],
+    methods: {
+      bgColor() {
+        const color = Color(this.combo.accent).mix(Color(this.combo.main)).hsl();
+        // color.color[1] = 20;
+        color.color[2] = 90;
+        return color
+      }
+    },
+    mounted() {
+      console.log(this.bgColor())
+    },
+  }
 </script>
 
 <style scoped>
   .Combo {
-    width: 15em;
-    height: 10em;
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    margin: 0 3px;
-
+    cursor: pointer;
   }
+
   .container {
-    height: 5em;
     position: relative;
   }
+
   .Product {
     position: absolute;
     left: -5em;
-    top: -5em;
+    top: 3em;
   }
+
   span {
     padding-top: 2em;
     text-align: center;

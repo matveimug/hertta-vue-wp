@@ -23,14 +23,13 @@
   import hDots from './partials/Dots.vue'
 
   export default {
-    components: { hDots },
+    components: {hDots},
     computed: {
       ...mapState('mittens', ['main', 'accent', 'selected']),
       ...mapGetters('mittens', ['randomColors'])
     },
     mounted() {
       this.selectedColors(this.randomColors);
-      console.log(this.selected)
     },
     methods: {
       selectMain: function (payload) {
