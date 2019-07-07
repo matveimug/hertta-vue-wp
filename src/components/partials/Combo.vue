@@ -1,5 +1,5 @@
 <template>
-  <div class="Combo" :style="bgColor()">
+  <div class="Combo">
     <div class="container">
       <h-product class="Product" :colors="combo" :scale=".3"/>
     </div>
@@ -21,6 +21,7 @@
       }
     },
   }
+
 </script>
 
 <style scoped>
@@ -30,6 +31,7 @@
     align-items: center;
     justify-content: center;
     cursor: pointer;
+    background: white;
   }
 
   .container {
