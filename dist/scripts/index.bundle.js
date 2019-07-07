@@ -54147,7 +54147,7 @@ exports = module.exports = __webpack_require__(7)(undefined);
 
 
 // module
-exports.push([module.i, "main[data-v-68cc49e1]{width:100%;height:100vh;overflow:hidden;justify-content:center;align-items:center}.navbar-brand[data-v-68cc49e1]{width:70vh}", ""]);
+exports.push([module.i, "main[data-v-68cc49e1]{width:100%;height:100vh;overflow:hidden;justify-content:center;align-items:center;flex-direction:column}.navbar-brand[data-v-68cc49e1]{width:70vh}.lds-ellipsis[data-v-68cc49e1]{display:inline-block;position:relative;width:64px;height:64px}.lds-ellipsis div[data-v-68cc49e1]{position:absolute;top:27px;width:11px;height:11px;border-radius:50%;background:#0a0a0a;animation-timing-function:cubic-bezier(0,1,1,0)}.lds-ellipsis div[data-v-68cc49e1]:first-child{left:6px;animation:lds-ellipsis1-data-v-68cc49e1 .6s infinite}.lds-ellipsis div[data-v-68cc49e1]:nth-child(2){left:6px;animation:lds-ellipsis2-data-v-68cc49e1 .6s infinite}.lds-ellipsis div[data-v-68cc49e1]:nth-child(3){left:26px;animation:lds-ellipsis2-data-v-68cc49e1 .6s infinite}.lds-ellipsis div[data-v-68cc49e1]:nth-child(4){left:45px;animation:lds-ellipsis3-data-v-68cc49e1 .6s infinite}@keyframes lds-ellipsis1-data-v-68cc49e1{0%{transform:scale(0)}to{transform:scale(1)}}@keyframes lds-ellipsis3-data-v-68cc49e1{0%{transform:scale(1)}to{transform:scale(0)}}@keyframes lds-ellipsis2-data-v-68cc49e1{0%{transform:translate(0)}to{transform:translate(19px)}}", ""]);
 
 // exports
 
@@ -54157,8 +54157,8 @@ exports.push([module.i, "main[data-v-68cc49e1]{width:100%;height:100vh;overflow:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;return _c('main',{staticClass:"loading-container is-flex"},[_c('h-brand',{staticClass:"navbar-brand"})],1)}
-var staticRenderFns = []
+var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;return _c('main',{staticClass:"loading-container is-flex"},[_c('h-brand',{staticClass:"navbar-brand"}),_vm._v(" "),_vm._m(0)],1)}
+var staticRenderFns = [function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;return _c('div',{staticClass:"lds-ellipsis"},[_c('div'),_c('div'),_c('div'),_c('div')])}]
 var esExports = { render: render, staticRenderFns: staticRenderFns }
 /* harmony default export */ __webpack_exports__["a"] = (esExports);
 
