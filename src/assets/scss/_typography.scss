@@ -1,5 +1,33 @@
 @import url('https://fonts.googleapis.com/css?family=Raleway:300,400,800&display=swap&subset=latin-ext');
+@import url('https://fonts.googleapis.com/css?family=Abril+Fatface&display=swap');
 
-h1, h2, h3, h4, h5, h6 {
+h1, h2, h3 {
+  font-family: 'Abril Fatface', cursive;
+}
+h4, h5, h6 {
   font-family: 'Raleway', sans-serif;
+}
+
+h1 {
+  font-size: calc(24px + 3vw);
+}
+
+h2 {
+  font-size: calc(20px + 3vw);
+}
+
+h3 {
+  font-size: calc(16px + 2vw);
+}
+
+h4 {
+  font-size: calc(16px + 1vw);
+}
+
+h5 {
+  font-size: calc(16px + .6vw);
+}
+
+h6 {
+  font-size: calc(16px + .3vw);
 }

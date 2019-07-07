@@ -9,6 +9,9 @@
         </div>
       </div>
     </section>
+    <template v-if="allPagesLoaded">
+      <div class="copy" v-html="pageContent.content.rendered"></div>
+    </template>
     <section class="section">
       <h-combos class="container"/>
     </section>
@@ -17,16 +20,23 @@
 
 <script>
   import {mapState, mapGetters, mapActions} from "vuex";
-  import RecentPostsWidget from "./widgets/RecentPosts.vue";
-  import PagesWidget from "./widgets/Pages.vue";
-
   import hDots from './partials/Dots.vue'
 
   export default {
     components: {hDots},
     computed: {
       ...mapState('mittens', ['main', 'accent', 'selected']),
-      ...mapGetters('mittens', ['randomColors'])
+      ...mapGetters({
+        page: "page",
+        pageContent: "pageContent",
+        allPages: "allPages",
+        allPagesLoaded: "allPagesLoaded",
+        randomColors: "mittens/randomColors"
+      }),
+
+      pageContent() {
+        return this.page("homepage");
+      }
     },
     mounted() {
       this.selectedColors(this.randomColors);
@@ -68,6 +78,9 @@
     &.accent {
       right: 0;
     }
+  }
+  .copy {
+    text-align: center;
   }
 </style>
 
