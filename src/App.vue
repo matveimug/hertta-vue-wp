@@ -2,27 +2,18 @@
   <div id="my-app" class="page-wrapper">
     <template v-if="allPagesLoaded">
       <app-header/>
-
-      <transition
-              name="loader-animation"
-              enter-active-class="animated fadeIn"
-              leave-active-class="animated fadeOut"
-      >
-        <progress-bar :show-loader="showLoader" :loader-style="loaderStyle"/>
-      </transition>
-
-      <transition name="page-transition" mode="out-in" appear>
+      <main>
         <keep-alive>
           <router-view></router-view>
         </keep-alive>
-      </transition>
+      </main>
 
       <h-background-graphics/>
 
       <app-footer/>
     </template>
     <template v-else>
-      <Loading />
+      <Loading/>
     </template>
   </div>
 </template>
@@ -72,3 +63,16 @@
     }
   };
 </script>
+
+<style scoped>
+  .page-wrapper {
+    min-height: 100vh;
+    display: grid;
+    grid-template-areas: "header" "content" "footer";
+    grid-template-rows: 100px auto 50px;
+    position: relative;
+  }
+  main {
+    grid-area: content;
+  }
+</style>

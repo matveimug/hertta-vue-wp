@@ -9,9 +9,11 @@
         </div>
       </div>
     </section>
-    <template v-if="allPagesLoaded">
-      <div class="copy" v-html="pageContent.content.rendered"></div>
-    </template>
+    <section class="section">
+      <template v-if="allPagesLoaded">
+        <div class="copy container" v-html="pageContent.content.rendered"></div>
+      </template>
+    </section>
     <section class="section">
       <h-combos class="container"/>
     </section>
