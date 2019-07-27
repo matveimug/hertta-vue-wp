@@ -1,7 +1,7 @@
 <template>
   <div class="Dot">
     <div class="circle" :style="{
-      backgroundColor: color,
+      backgroundImage: getDot(color),
       width: radius*2 + 'px',
       height: radius*2 + 'px'
     }"></div>
@@ -9,16 +9,23 @@
 </template>
 
 <script>
-    export default {
-        props: {
-            color: {},
-            radius: { default: 5 },
-        }
+  export default {
+    props: {
+      color: {},
+      radius: {default: 5},
+    },
+    methods: {
+      getDot: function (color) {
+        return 'url("' + this.templateUrl + '/src/assets/images/mittens/dots/' + color + '.png")'
+      }
     }
+  }
 </script>
 
 <style scoped>
   .circle {
     border-radius: 100%;
+    background-position: center center;
+    background-size: cover;
   }
 </style>

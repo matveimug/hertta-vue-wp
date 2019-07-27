@@ -8,7 +8,7 @@
         </keep-alive>
       </main>
 
-      <h-background-graphics/>
+<!--      <h-background-graphics/>-->
 
       <app-footer/>
     </template>
@@ -69,7 +69,7 @@
     min-height: 100vh;
     display: grid;
     grid-template-areas: "header" "content" "footer";
-    grid-template-rows: 100px auto 50px;
+    grid-template-rows: 0 auto 50px;
     position: relative;
   }
   main {

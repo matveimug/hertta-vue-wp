@@ -1,13 +1,12 @@
 <template>
   <div class="Combo">
-    <div class="container">
-      <h-product class="Product" :colors="combo" :scale=".3"/>
-    </div>
+    <h-product class="Product" :colors="combo" :scale=".3"/>
   </div>
 </template>
 
 <script>
   import Color from "color"
+
   export default {
     props: ['combo'],
     methods: {
@@ -15,8 +14,8 @@
         const color = Color(this.combo.accent).mix(Color(this.combo.main), 0.3).hsl();
         // color.color[1] = 20;
         color.color[2] = 97;
-        const bgColor = 'background-color: '+ color;
-        const bgGradient = 'background-image: linear-gradient(132deg,'+this.combo.accent+','+this.combo.main+')'
+        const bgColor = 'background-color: ' + color;
+        const bgGradient = 'background-image: linear-gradient(132deg,' + this.combo.accent + ',' + this.combo.main + ')'
         return bgColor
       }
     },
@@ -34,14 +33,9 @@
     background: white;
   }
 
-  .container {
-    position: relative;
-  }
-
   .Product {
-    position: absolute;
-    left: -5em;
-    top: 3em;
+    width: 100%;
+    height: 100%;
   }
 
   span {

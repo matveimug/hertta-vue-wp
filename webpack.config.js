@@ -77,15 +77,16 @@ module.exports = {
         })
       },
       {
+        test: /\.(jpe?g|png|gif)$/,
+        loader: 'url-loader',
+        options: {
+          limit: 10 * 1024
+        }
+      },
+      {
         test: /\.(png|svg|jpg|gif)$/,
-        use: [
-          {
-            loader: "file-loader",
-            options: {
-              name: "img/[name].[ext]"
-            }
-          }
-        ]
+        loader: 'image-webpack-loader',
+        enforce: 'pre'
       },
       {
         test: /\.(png|woff|woff2|eot|ttf|svg)$/,

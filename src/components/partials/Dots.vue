@@ -1,11 +1,13 @@
 <template>
   <div class="Dots" ref="parent">
-    <h-dot
-        v-for="color in colors"
-        @click.native="isClicked(color)"
-        :color="color"
-        :ref="color"
-        :key="color"/>
+    <template v-for="color in colors">
+      <h-dot  @click.native="isClicked(color)"
+              :color="color"
+              :ref="color"
+              :key="color"
+              :class="{ inactive: color === remove }"
+      />
+    </template>
     <h-marker :top="marker_top"/>
   </div>
 </template>
@@ -18,7 +20,7 @@
 
   export default {
     components: { hDot, hMarker },
-    props: ['colors', 'propsSelected'],
+    props: ['colors', 'propsSelected', 'remove'],
     computed: {
       ...mapState('mittens', ['selected']),
       ...mapGetters('mittens', ["watchSelected"]),
@@ -43,7 +45,9 @@
     },
     methods: {
       isClicked: function (payload) {
-        this.$emit('emit', payload)
+        if (payload !== this.remove) {
+          this.$emit('emit', payload)
+        }
       },
       ...mapActions({
         'selectedPos': 'mittens/selectedPos',
@@ -52,7 +56,7 @@
   }
 </script>
 
-<style lang="scss" scoped>
+<style lang="scss">
   @import "../../assets/scss/variables";
   .Dots {
     z-index: 1;
@@ -61,5 +65,14 @@
     padding: $h-dotpadding;
     cursor: pointer;
     position: relative;
+    transition: all .2s ease;
+  }
+  .inactive {
+    cursor: default;
+    opacity: .2;
+    .circle {
+      background: none !important;
+      border: solid 1px black;
+    }
   }
 </style>

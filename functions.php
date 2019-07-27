@@ -2,6 +2,12 @@
 // Remove all default WP template redirects/lookups
 remove_action( 'template_redirect', 'redirect_canonical' );
 
+wp_register_script( 'my-script', '/src/app.js' );
+wp_enqueue_script( 'my-script' );
+$translation_array = array( 'templateUrl' => get_stylesheet_directory_uri() );
+//after wp_enqueue_script
+wp_localize_script( 'my-script', 'object_name', $translation_array );
+
 // Redirect all requests to index.php so the Vue app is loaded and 404s aren't thrown
 function remove_redirects() {
 	add_rewrite_rule( '^/(.+)/?', 'index.php', 'top' );
@@ -24,8 +30,11 @@ function load_vue_scripts() {
 //		null,
 //		filemtime( get_stylesheet_directory() . '/dist/styles.css' )
 //	);
+
 }
 add_action( 'wp_enqueue_scripts', 'load_vue_scripts', 100 );
+
+
 
 function mytheme_register_nav_menu(){
 	register_nav_menus( array(

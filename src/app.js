@@ -1,3 +1,15 @@
+const templateUrl_ = object_name.templateUrl;
+
+Vue.mixin({
+  data: function() {
+    return {
+      get templateUrl() {
+        return templateUrl_;
+      }
+    }
+  }
+});
+
 import "babel-polyfill";
 import Vue from "vue";
 

@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="page">
     <template v-if="allPagesLoaded">
       <section class="section">
         <div class="container">
@@ -33,3 +33,8 @@
     }
   };
 </script>
+<style scoped>
+  .page {
+    margin-top: 100px;
+  }
+</style>

@@ -3,9 +3,9 @@
     <section class="hero is-fullheight">
       <div class="hero-body">
         <div class="container is-flex hero-center">
-          <h-dots class="dots main" :colors="main" :propsSelected="selected.main" v-on:emit="selectMain"/>
-          <h-product class="large" :colors="selected" :scale="1"/>
-          <h-dots class="dots accent" :colors="accent" :propsSelected="selected.accent" v-on:emit="selectAccent"/>
+          <h-dots class="dots main" :colors="main" :remove="selected.accent" :propsSelected="selected.main" v-on:emit="selectMain"/>
+          <h-product class="large" :colors="selected"/>
+          <h-dots class="dots accent" :colors="accent" :remove="selected.main" :propsSelected="selected.accent" v-on:emit="selectAccent"/>
         </div>
       </div>
     </section>
@@ -61,7 +61,10 @@
 
 <style lang="scss" scoped>
   @import "../assets/scss/variables";
-
+  .large {
+    width: 68vh;
+    height: 50vh;
+  }
   .hero-center {
     width: 100%;
     height: 100%;

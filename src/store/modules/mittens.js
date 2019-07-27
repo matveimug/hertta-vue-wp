@@ -8,25 +8,29 @@ function random(min, max) {
 // initial state
 const state = {
   main: [
-    "gainsboro",
-    "lightgray",
-    "darkgray",
-    "dimgray",
-    "slategray",
-    "darkslategray"
+    "lightest_gray",
+    "light_gray",
+    "medium_gray",
+    "dark_gray",
+    "black"
   ],
   accent: [
-    "khaki",
-    "coral",
-    "palevioletred",
-    "salmon",
-    "yellow",
-    "lavenderblush",
-    "mediumpurple",
-    "indigo",
-    "chartreuse",
-    "turquoise",
-    "navajowhite"
+    "apple_green",
+    "aquamarine",
+    "beige",
+    "bordeaux",
+    "electric_blue",
+    "light_blue",
+    "neon_pink",
+    "old_pink",
+    "curcuma",
+    "brick_red",
+    "brown",
+    "lightest_gray",
+    "light_gray",
+    "medium_gray",
+    "dark_gray",
+    "black"
   ],
   combos: [],
   selected: {
@@ -42,16 +46,24 @@ const getters = {
     const mains = state.main;
     const accents = state.accent;
     const colors = {
-      main: mains[random(0, mains.length - 1)],
-      accent: accents[random(0, accents.length - 1)]
+      main: 0,
+      accent: 0
     };
+    while (colors.main === colors.accent) {
+      console.log(colors.main === colors.accent);
+      colors.main = mains[random(0, mains.length - 1)];
+      colors.accent = accents[random(0, accents.length - 1)];
+      console.log(colors.main === colors.accent);
+    }
     return colors;
   },
   makeCombos: function() {
     const combos = [];
     for (let i = 0; i < state.main.length; i++) {
       for (let j = 0; j < state.accent.length; j++) {
-        combos.push({ main: state.main[i], accent: state.accent[j] });
+        if (state.main[i] !== state.accent[j]) {
+          combos.push({ main: state.main[i], accent: state.accent[j] });
+        }
       }
     }
     return combos;
