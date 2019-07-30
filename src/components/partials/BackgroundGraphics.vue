@@ -35,38 +35,41 @@
       handleResize() {
         this.window.width = window.innerWidth;
         this.window.height = window.innerHeight;
+      },
+      doAnimation: function () {
+        const timeline = new TimelineLite();
+        const {main} = this.$refs;
+        const {accent} = this.$refs;
+        const w = this.window.width / 2 - 60;
+        const h = this.window.height / 2 - 60;
+        const r = utils.randomNumbers(w / 2, w);
+        timeline.to(main, 1, {
+          ease: Power4.easeInOut,
+          x: utils.randomNumbers(0, w),
+          y: utils.randomNumbers(0, h),
+          rotation: utils.randomNumbers(0, 180),
+          backgroundColor: utils.colorToRgb(selected.main),
+          width: utils.randomNumbers(w / 3, 3 * w),
+          height: utils.randomNumbers(h / 3, 3 * h),
+          zIndex: utils.randomNumbers(-1, 0)
+        }, "go");
+        timeline.to(accent, 1, {
+          ease: Power4.easeInOut,
+          x: -utils.randomNumbers(0, w),
+          y: utils.randomNumbers(0, h),
+          rotation: utils.randomNumbers(0, 180),
+          backgroundColor: utils.colorToRgb(selected.accent),
+          width: r,
+          height: r,
+          zIndex: utils.randomNumbers(-1, 0)
+        }, "go");
       }
     },
     watch: {
       watchSelected: {
         deep: true,
         handler(selected) {
-          const timeline = new TimelineLite();
-          const {main} = this.$refs;
-          const {accent} = this.$refs;
-          const w = this.window.width / 2 - 60;
-          const h = this.window.height / 2 - 60;
-          const r = utils.randomNumbers(w / 2, w);
-          timeline.to(main, 1, {
-            ease: Power4.easeInOut,
-            x: utils.randomNumbers(0, w),
-            y: utils.randomNumbers(0, h),
-            rotation: utils.randomNumbers(0, 180),
-            backgroundColor: utils.colorToRgb(selected.main),
-            width: utils.randomNumbers(w / 3, 3 * w),
-            height: utils.randomNumbers(h / 3, 3 * h),
-            zIndex: utils.randomNumbers(-1, 0)
-          }, "go");
-          timeline.to(accent, 1, {
-            ease: Power4.easeInOut,
-            x: -utils.randomNumbers(0, w),
-            y: utils.randomNumbers(0, h),
-            rotation: utils.randomNumbers(0, 180),
-            backgroundColor: utils.colorToRgb(selected.accent),
-            width: r,
-            height: r,
-            zIndex: utils.randomNumbers(-1, 0)
-          }, "go");
+          this.doAnimation();
         }
       }
     },

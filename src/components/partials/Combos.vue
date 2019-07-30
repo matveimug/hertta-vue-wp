@@ -1,6 +1,6 @@
 <template>
   <div>
-    <div class="Combos">
+    <div class="Combos" v-if="productsLoaded">
       <h-combo
               v-for="(combo, index) in shuffle(makeCombos)"
               @click.native="storeCombo(combo)"
@@ -16,7 +16,7 @@
     import _ from "lodash";
     export default {
         computed: {
-            ...mapGetters('mittens', ['makeCombos'])
+            ...mapGetters('mittens', ['makeCombos', 'productsLoaded'])
         },
         methods: {
             shuffle(deck) {

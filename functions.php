@@ -2,12 +2,6 @@
 // Remove all default WP template redirects/lookups
 remove_action( 'template_redirect', 'redirect_canonical' );
 
-wp_register_script( 'my-script', '/src/app.js' );
-wp_enqueue_script( 'my-script' );
-$translation_array = array( 'templateUrl' => get_stylesheet_directory_uri() );
-//after wp_enqueue_script
-wp_localize_script( 'my-script', 'object_name', $translation_array );
-
 // Redirect all requests to index.php so the Vue app is loaded and 404s aren't thrown
 function remove_redirects() {
 	add_rewrite_rule( '^/(.+)/?', 'index.php', 'top' );
@@ -16,6 +10,7 @@ add_action( 'init', 'remove_redirects' );
 
 // Load scripts
 function load_vue_scripts() {
+
 	wp_enqueue_script(
 		'vuejs-wordpress-theme-starter-js',
 		get_stylesheet_directory_uri() . '/dist/scripts/index.min.bundle.js',
@@ -23,6 +18,17 @@ function load_vue_scripts() {
 		filemtime( get_stylesheet_directory() . '/dist/scripts/index.min.bundle.js' ),
 		true
 	);
+
+	wp_enqueue_script(
+		'my-script',
+		get_stylesheet_directory_uri() . '/dummy.js'
+	);
+	$translation_array = array(
+		'templateUrl' => get_stylesheet_directory_uri(),
+		'homeUrl' => get_home_url()
+	);
+	//after wp_enqueue_script
+	wp_localize_script( 'my-script', 'wp_obj_from_functions', $translation_array );
 
 //	wp_enqueue_style(
 //		'vuejs-wordpress-theme-starter-css',

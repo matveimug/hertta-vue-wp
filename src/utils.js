@@ -27,7 +27,8 @@ const utils = {
         const x = ref.getBoundingClientRect().left;
         const y = ref.getBoundingClientRect().top;
         return {x: x, y: y}
-    }
+    },
+    wp_obj: wp_obj_from_functions
 };
 
 export default utils

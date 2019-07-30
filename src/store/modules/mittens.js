@@ -1,3 +1,6 @@
+import woocommerce from "../../api/woocommerce";
+import * as types from "../mutation-types";
+import api from "../../api";
 
 const scaleNums = (val, r1, r2) =>
     ((val - r1[0]) * (r2[1] - r2[0])) / (r1[1] - r1[0]) + r2[0];
@@ -8,36 +11,20 @@ function random(min, max) {
 // initial state
 const state = {
   main: [
-    "lightest_gray",
-    "light_gray",
-    "medium_gray",
-    "dark_gray",
-    "black"
+      "black"
   ],
   accent: [
-    "apple_green",
-    "aquamarine",
-    "beige",
-    "bordeaux",
-    "electric_blue",
-    "light_blue",
-    "neon_pink",
-    "old_pink",
-    "curcuma",
-    "brick_red",
-    "brown",
-    "lightest_gray",
-    "light_gray",
-    "medium_gray",
-    "dark_gray",
-    "black"
+      "neon_pink"
   ],
+  sizes: [],
   combos: [],
   selected: {
     main: "",
     accent: "",
     pos: {}
-  }
+  },
+  loaded: false,
+  hover: false
 };
 
 // getter - nagu methods??
@@ -50,10 +37,8 @@ const getters = {
       accent: 0
     };
     while (colors.main === colors.accent) {
-      console.log(colors.main === colors.accent);
       colors.main = mains[random(0, mains.length - 1)];
       colors.accent = accents[random(0, accents.length - 1)];
-      console.log(colors.main === colors.accent);
     }
     return colors;
   },
@@ -68,9 +53,9 @@ const getters = {
     }
     return combos;
   },
-  watchSelected: function () {
-    return state.selected
-  }
+  watchSelected: state => state.selected,
+  productsLoaded: state => state.loaded,
+  hoverHero: state => state.hover,
 };
 const mutations = {
   selectedColors: function(state, payload) {
@@ -84,6 +69,16 @@ const mutations = {
   },
   selectedPos: function(state, payload) {
     state.selected.pos = payload;
+  },
+  getProducts: function(state, payload) {
+    state.sizes = payload[2].options;
+    state.main = payload[1].options;
+    state.accent = payload[0].options;
+    state.loaded = true;
+    state.selected = getters.randomColors();
+  },
+  hoverHero: function (state, payload) {
+    state.hover = payload
   }
 };
 const actions = {
@@ -101,7 +96,15 @@ const actions = {
   },
   selectedPos: function(context, payload) {
     context.commit("selectedPos", payload);
-  }
+  },
+  hoverHero: function(context, payload) {
+    context.commit("hoverHero", payload);
+  },
+  getProducts: function(context) {
+    woocommerce.getProducts(products => {
+      context.commit("getProducts", products[0].attributes);
+    });
+  },
 };
 
 export default {

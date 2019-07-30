@@ -1,11 +1,9 @@
 <template>
-  <div class="Dot">
     <div class="circle" :style="{
       backgroundImage: getDot(color),
       width: radius*2 + 'px',
       height: radius*2 + 'px'
     }"></div>
-  </div>
 </template>
 
 <script>
@@ -16,7 +14,7 @@
     },
     methods: {
       getDot: function (color) {
-        return 'url("' + this.templateUrl + '/src/assets/images/mittens/dots/' + color + '.png")'
+        return 'url("' + this.wp_obj.templateUrl + '/src/assets/images/mittens/dots/' + color + '.png")'
       }
     }
   }

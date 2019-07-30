@@ -1,10 +1,8 @@
-const templateUrl_ = object_name.templateUrl;
-
 Vue.mixin({
   data: function() {
     return {
-      get templateUrl() {
-        return templateUrl_;
+      get wp_obj() {
+        return utils.wp_obj;
       }
     }
   }
@@ -31,6 +29,7 @@ import Combos from './components/partials/Combos.vue'
 import Combo from './components/partials/Combo.vue'
 import Brand from './components/partials/Brand.vue'
 import BackgroundGraphics from "./components/partials/BackgroundGraphics.vue";
+import Button from "./components/partials/Button.vue";
 
 Vue.component('hProduct', Product);
 Vue.component('hProductMain', Main);
@@ -40,6 +39,7 @@ Vue.component('hAccentColor', AccentColor);
 Vue.component('hCombos', Combos);
 Vue.component('hCombo', Combo);
 Vue.component('hBrand', Brand);
+Vue.component('hButton', Button);
 Vue.component('hBackgroundGraphics', BackgroundGraphics);
 
 new Vue({
@@ -52,5 +52,6 @@ new Vue({
     this.$store.commit(types.RESET_LOADING_PROGRESS);
     this.$store.dispatch("getAllCategories");
     this.$store.dispatch("getAllPages");
+    this.$store.dispatch("mittens/getProducts");
   }
 });

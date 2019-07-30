@@ -1,6 +1,6 @@
 <template>
   <div id="my-app" class="page-wrapper">
-    <template v-if="allPagesLoaded">
+    <template v-if="allPagesLoaded && productsLoaded">
       <app-header/>
       <main>
         <keep-alive>
@@ -19,7 +19,7 @@
 </template>
 
 <script>
-  import {mapGetters} from "vuex";
+  import {mapGetters, mapActions} from "vuex";
   import Loading from "./components/partials/Loading.vue";
   import Header from "./components/partials/Header.vue";
   import Footer from "./components/partials/Footer.vue";
@@ -36,11 +36,17 @@
         isLoading: "isLoading",
         loadingProgress: "loadingProgress",
         allPagesLoaded: "allPagesLoaded",
+        productsLoaded: "mittens/productsLoaded"
       }),
 
       loaderStyle() {
         return `width: ${this.loadingProgress}%;`;
       }
+    },
+    methods: {
+      ...mapActions({
+        'getProducts': 'mittens/getProducts',
+      })
     },
 
     components: {

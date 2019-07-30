@@ -18,15 +18,23 @@
         parent_y: {}
       }
     },
+    mounted() {
+      this.doAnimation(this.top);
+    },
+    methods: {
+      doAnimation: function (val) {
+        const timeline = new TimelineLite();
+        const { marker } = this.$refs;
+        timeline.to(marker, 1, {
+          ease: Expo.easeInOut,
+          top: val
+        });
+      }
+    },
     watch: {
       deep: true,
       top: function(newVal) {
-          const timeline = new TimelineLite();
-          const { marker } = this.$refs;
-          timeline.to(marker, 1, {
-            ease: Expo.easeInOut,
-            top: newVal
-          });
+        this.doAnimation(newVal);
       }
     }
   }

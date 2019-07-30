@@ -20,7 +20,7 @@
     props: ['colors', 'scale'],
     methods: {
       makeBg: function (dir, color) {
-        return 'url("' + this.templateUrl + '/src/assets/images/mittens/' + dir + '/' + color + '.png")'
+        return 'url("' + this.wp_obj.templateUrl + '/src/assets/images/mittens/' + dir + '/' + color + '.png")'
       },
       getBgs: function (dirMain, colorMain, dirAccent, colorAccent) {
         return this.makeBg(dirMain, colorMain) + ', ' + this.makeBg(dirAccent, colorAccent)
