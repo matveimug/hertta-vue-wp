@@ -46,10 +46,10 @@
           let el;
           let nudge;
           if (this.side === 'left') {
-            el = '.main .Dot, .main .marker';
+            el = '.main .marker, .main .Dot';
             nudge = 10
           } else {
-            el = '.accent .Dot, .accent .marker';
+            el = '.accent .marker, .accent .Dot';
             nudge = -10
           }
           if (val) {

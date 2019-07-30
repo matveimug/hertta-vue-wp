@@ -7,10 +7,11 @@
           <router-view></router-view>
         </keep-alive>
       </main>
-
-<!--      <h-background-graphics/>-->
-
+<!--  <h-background-graphics/>-->
       <app-footer/>
+      <h-modal :class="{ 'modal-is-active' : modalActive }">
+        <h-cart />
+      </h-modal>
     </template>
     <template v-else>
       <Loading/>
@@ -24,6 +25,7 @@
   import Header from "./components/partials/Header.vue";
   import Footer from "./components/partials/Footer.vue";
   import ProgressBar from "./components/partials/ProgressBar.vue";
+  import Cart from "./components/partials/Cart.vue"
 
   export default {
     data() {
@@ -36,7 +38,8 @@
         isLoading: "isLoading",
         loadingProgress: "loadingProgress",
         allPagesLoaded: "allPagesLoaded",
-        productsLoaded: "mittens/productsLoaded"
+        productsLoaded: "mittens/productsLoaded",
+        modalActive: "cart/modalActive"
       }),
 
       loaderStyle() {
@@ -52,8 +55,9 @@
     components: {
       appHeader: Header,
       appFooter: Footer,
+      hCart: Cart,
       ProgressBar,
-      Loading
+      Loading,
     },
 
     watch: {

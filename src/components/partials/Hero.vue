@@ -9,7 +9,7 @@
       <div class="product-container">
         <h-product class="large" :colors="selected"/>
         <div ref="add_cart" class="invisible btn-add-to-cart">
-          <h-button class="">Add to cart</h-button>
+          <h-button @click.native="confirmAdd" class="">Add to cart</h-button>
         </div>
       </div>
       <h-dots class="dots accent" side="right" :colors="accent" :remove="selected.main" :propsSelected="selected.accent" v-on:emit="selectAccent"/>
@@ -24,7 +24,7 @@
   export default {
     components: {hDots},
     computed: {
-      ...mapState('mittens', ['main', 'accent', 'selected']),
+      ...mapState('mittens', ['main', 'accent', 'selected', 'sizes']),
       ...mapGetters({
         page: "page",
         pageContent: "pageContent",
@@ -47,6 +47,11 @@
       },
       selectAccent: function (payload) {
         this.selectedAccent(payload);
+      },
+      confirmAdd: function () {
+        let obj = { ...this.selected, size: this.sizes[1] };
+        this.addCart(obj);
+        this.toggleModal(true);
       },
       hover: function (payload) {
         this.hoverHero(payload);
@@ -71,6 +76,8 @@
         'selectedMain': 'mittens/selectedMain',
         'selectedAccent': 'mittens/selectedAccent',
         'hoverHero': 'mittens/hoverHero',
+        'toggleModal': 'cart/toggleModal',
+        'addCart': 'cart/addCart',
       })
     },
   };
@@ -86,6 +93,7 @@
     margin-top: 0vh;
     height: 56vh;
     z-index: 1;
+    cursor: pointer;
   }
   .hero-center {
     width: 100%;

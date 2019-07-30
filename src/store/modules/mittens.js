@@ -51,6 +51,7 @@ const getters = {
         }
       }
     }
+    console.log('just made', combos.length, 'combos !');
     return combos;
   },
   watchSelected: state => state.selected,
@@ -102,6 +103,7 @@ const actions = {
   },
   getProducts: function(context) {
     woocommerce.getProducts(products => {
+      console.log('products from woo:', products);
       context.commit("getProducts", products[0].attributes);
     });
   },

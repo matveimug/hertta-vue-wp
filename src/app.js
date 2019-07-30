@@ -30,6 +30,7 @@ import Combo from './components/partials/Combo.vue'
 import Brand from './components/partials/Brand.vue'
 import BackgroundGraphics from "./components/partials/BackgroundGraphics.vue";
 import Button from "./components/partials/Button.vue";
+import Modal from "./components/partials/Modal.vue";
 
 Vue.component('hProduct', Product);
 Vue.component('hProductMain', Main);
@@ -41,6 +42,7 @@ Vue.component('hCombo', Combo);
 Vue.component('hBrand', Brand);
 Vue.component('hButton', Button);
 Vue.component('hBackgroundGraphics', BackgroundGraphics);
+Vue.component('hModal', Modal);
 
 new Vue({
   el: "#app",

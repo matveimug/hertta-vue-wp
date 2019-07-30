@@ -9,6 +9,7 @@ import post from './modules/post'
 import page from './modules/page'
 import categories from './modules/categories'
 import mittens from './modules/mittens'
+import cart from './modules/cart'
 
 Vue.use(Vuex)
 
@@ -29,7 +30,8 @@ export default new Vuex.Store({
     post,
     page,
     categories,
-    mittens
+    mittens,
+    cart
   },
   strict: debug,
   // plugins: [localStorage]
