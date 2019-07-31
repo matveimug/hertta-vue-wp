@@ -1,13 +1,19 @@
 <template>
   <div class="cart">
+    <h3>Cart</h3>
     <div class="cart-item" v-for="(item, index) in cart">
-      {{item.main}}
-      {{item.accent}}
+      <div class="cart-product-container">
+        <h-product class="cart-product" :colors="{main: item.main, accent: item.accent}" :scale=".3"/>
+      </div>
+      <div>
+        {{item.main}} / <br>
+        {{item.accent}}
+      </div>
       <div class="sizes">
         <template v-for="size in sizes">
-          <span   :class="['size', { active : size === item.size }]"
+          <div   :class="['size', { active : size === item.size }]"
                   @click="setSize(size, index)"
-          >{{size}}</span>
+          >{{size}}</div>
         </template>
       </div>
     </div>
@@ -40,11 +46,29 @@
 
 <style scoped lang="scss">
   @import "../../assets/scss/variables";
+  .cart {
+    &-item {
+      display: flex;
+      align-items: center;
+    }
+    &-product {
+      &-container {
+        height: 7em;
+        width: 7em;
+      }
+      margin-top: 1.1em;
+    }
+  }
   .size {
     &s {
-
+      display: flex;
     }
-    margin: 0 .5em;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-width: 2em;
+    min-height: 2em;
+    padding: .2em;
     cursor: pointer;
     &.active {
       background-color: $black;

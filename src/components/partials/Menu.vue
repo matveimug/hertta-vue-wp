@@ -6,26 +6,38 @@
           {{ item.title }}
         </router-link>
       </li>
+      <li class="cart" @click="toggleModal">
+        <fa :icon="['fas', 'shopping-cart']"/>
+        <span v-if="getCart.length">{{getCart.length}}</span>
+      </li>
     </ul>
   </nav>
 </template>
 
 <script>
+  import {mapGetters, mapActions} from "vuex";
+
   export default {
     props: ['menu'],
+    computed: {
+      ...mapGetters(
+        'cart', ['getCart']
+      ),
+    },
     methods: {
       parseUrl: function (url) {
         const parser = document.createElement('a');
         parser.href = url;
         parser.hostname;
         let pathname = parser.pathname;
-
         if (pathname[0] != '/') {
           pathname = '/' + pathname
         }
-
         return pathname;
-      }
+      },
+      ...mapActions({
+        'toggleModal': 'cart/toggleModal',
+      })
     }
   }
 </script>
@@ -56,6 +68,9 @@
     user-select: none;
   }
 
+  .cart {
+    cursor: pointer;
+  }
   .router-link-active {
     cursor: default;
     border-bottom: $h-border;

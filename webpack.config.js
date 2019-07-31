@@ -110,10 +110,9 @@ module.exports = {
     }),
     new webpack.optimize.UglifyJsPlugin({
       include: /\.min\.bundle\.js$/,
-      minimize: true,
       ecma: 8
     }),
-    new webpack.LoaderOptionsPlugin({ minimize: true }),
+    new webpack.LoaderOptionsPlugin(),
     new ExtractTextPlugin("styles.css")
   ]
 };

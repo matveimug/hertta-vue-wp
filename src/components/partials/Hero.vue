@@ -93,7 +93,6 @@
     margin-top: 0vh;
     height: 56vh;
     z-index: 1;
-    cursor: pointer;
   }
   .hero-center {
     width: 100%;

@@ -1,9 +1,11 @@
 <template>
   <header>
-    <router-link class="brand-link" :to="'/'">
-      <h-brand class="navbar-brand"/>
-    </router-link>
-    <h-nav-menu :menu="menu"/>
+    <div class="container">
+      <router-link class="brand-link" :to="'/'">
+        <h-brand class="navbar-brand"/>
+      </router-link>
+      <h-nav-menu :menu="menu"/>
+    </div>
   </header>
 </template>
 
@@ -42,12 +44,14 @@
     top: 0;
     left: 0;
     right: 0;
-    display: flex;
-    justify-content: center;
-    align-items: center;
     padding-top: $h-menuitempadding;
     color: $black;
     fill: $black;
+    .container {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
   }
   .navbar-brand {
     width: 190px;

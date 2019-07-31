@@ -16,6 +16,7 @@ import App from "./App.vue";
 import store from "./store";
 import * as types from "./store/mutation-types";
 import utils from "./utils";
+import './fontawesome'
 
 // import "./assets/css/styles.css";
 import "./assets/scss/_app.scss";
